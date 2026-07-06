@@ -1,127 +1,100 @@
-# PsicoCMS
+# 🧠 PsicoCMS — Tu web profesional como psicólog@, sin saber de tecnología
 
-**CMS monolítico para psicólogos independientes**
+¿Cansad@ de gestionar tus citas con papel y boli, de tener la agenda hecha un caos, de que los pacientes te llamen a todas horas para preguntar horarios, de no tener una web profesional porque "es muy caro" o "es muy complicado"?
 
-Construido con Laravel, PHP, MySQL y JavaScript vanilla. Cubre todo el flujo de trabajo de una psicóloga: web pública, blog, sistema de reservas, panel de administración, pacientes, historias clínicas y más.
-
----
-
-## Stack tecnológico
-
-| Capa        | Tecnología                          |
-|-------------|-------------------------------------|
-| Backend     | PHP 8.2+ / Laravel 11               |
-| Base de datos | MySQL / MariaDB                    |
-| Frontend    | HTML5 semántico, CSS3 nativo, JavaScript ES6+ |
-| Editor WYSIWYG | Jodit 4.7.6                      |
-| Calendario  | FullCalendar                        |
-| PDF         | DomPDF                              |
-| Iconos      | Font Awesome 6                      |
-| Fuentes     | Lexend, Castoro, Montserrat         |
+**PsicoCMS es tu solución.** Una herramienta todo-en-uno creada específicamente para psicólog@s independientes. Sin conocimientos técnicos. Sin pagar mensualidades a un desarrollador. Sin complicaciones.
 
 ---
 
-## Arquitectura
+## ¿Qué problemas resuelve?
 
-Aplicación web monolítica con dos caras:
-
-### Parte pública
-- Homepage con información de la psicóloga
-- Sobre mí
-- Servicios y especialidades
-- Planes y precios (online / presencial)
-- Blog con categorías
-- Preguntas frecuentes
-- Sistema de reserva de citas (wizard 3 pasos)
-- Contacto
-- 5 temas visuales seleccionables (elegante, moderno, minimalista, natural, profesional)
-- Modo landing (1 página) o multipágina
-
-### Dashboard privado (`/panel-psicologa`)
-- Login seguro con email + contraseña (teléfono opcional)
-- Panel de inicio con KPIs y estadísticas reales
-- Gestión de citas (CRUD + calendario FullCalendar)
-- Gestión de pacientes (CRUD + búsqueda AJAX)
-- Gestión de historias clínicas (notas + archivos adjuntos)
-- Gestión de blog (CRUD + categorías)
-- Gestión de FAQ (CRUD + reorden)
-- Gestión de disponibilidad (horarios semanales, descanso entre sesiones, modo vacaciones, periodos de vacaciones)
-- Gestión de servicios, especialidades y planes
-- Gestión de temas visuales (5 temas, preview, modo landing/multipágina)
-- Gestión de galería de imágenes
-- Configuración general, información pública, frases, redes sociales, email, funcionalidades
-- Protección de datos (plantilla WYSIWYG + PDF por paciente)
-- Buscador global (citas, pacientes, historias, blog, FAQ)
-- Tema claro/oscuro con 8 colores seleccionables
-- Notificaciones en tiempo real (nuevas reservas, citas próximas)
-- Ayuda / tutorial integrado
+| Sin PsicoCMS | Con PsicoCMS |
+|---|---|
+| Los pacientes te llaman para saber disponibilidad | Ellos mismos reservan online viendo tu agenda real |
+| Llevas las citas en papel, Excel o mental | Todo sincronizado, sin solapamientos, sin olvidos |
+| No tienes web o una que no puedes actualizar | Web profesional que tú mism@ gestionas |
+| Los pacientes pierden el interés porque no te encuentran online | Web bonita, rápida, en Google |
+| No llevas un registro de cada sesión | Historias clínicas digitales con fotos y PDFs |
+| Pagas cada mes por herramientas sueltas | Todo incluido en un solo sistema |
 
 ---
 
-## Funcionalidades clave
+## ¿Qué incluye?
 
-### Asistente de instalación
-Wizard multi-paso que guía a la psicóloga en la configuración inicial: conexión BD, datos personales, servicios, horarios, foto, selección de tema. Todo desde el navegador, sin tocar código.
+### 🌐 Tu web pública (5 diseños para elegir)
+- Tu foto, tu información, tus servicios, tus precios
+- Blog para compartir artículos con tus pacientes
+- Preguntas frecuentes que responderás una vez
+- Botón directo a WhatsApp y email
+- Mapa con tu ubicación
 
-### Sistema de citas con validación de solapamiento
-No se pueden crear dos citas en el mismo espacio de tiempo. La disponibilidad se configura por separado para online y presencial, con duración de sesión y descanso entre sesiones.
+### 📅 Sistema de reservas inteligente
+- El paciente ve SOLO los horarios en los que realmente estás disponible
+- Elige entre cita online o presencial
+- Tú controlas tu agenda: horarios, descansos, vacaciones
+- **Adiós a las llamadas para cuadrar agendas**
 
-### Notificaciones
-- Notificación en el dashboard cuando un paciente reserva una cita
-- Aviso automático 10 minutos antes de una cita
-- Polling cada 30 segundos, icono de campana con animación
-- Panel desplegable con historial de notificaciones
+### 🔐 Panel privado para ti sola
+- Accede con tu email y contraseña desde cualquier dispositivo
+- Ve todas tus citas en un calendario tipo Google Calendar
+- Añade pacientes manualmente si hablaste con ellos por teléfono
+- Lleva la historia clínica de cada paciente: notas, fotos, documentos
+- Genera el PDF de protección de datos con un clic
+- Activa o desactiva secciones (blog, FAQ, reservas…) según lo que necesites
 
-### WhatsApp integrado
-- En web pública: el icono de teléfono abre WhatsApp con el número de la psicóloga (+51 Perú)
-- En dashboard: botón WhatsApp por paciente para contactar directamente
-
-### 5 temas visuales
-Cada tema tiene paleta de colores única, tipografías, estilos de banner y botones. El tema activo se aplica al instante desde el dashboard.
-
-### Modo oscuro
-- Dashboard: toggle claro/oscuro + 8 colores primarios seleccionables (persistente en localStorage)
-- Web pública: botón flotante que sugiere instalar Dark Reader
-
----
-
-## Base de datos (20 tablas)
-
-- `psychologists` — único usuario del sistema
-- `settings` — configuración clave-valor
-- `services`, `specialties`, `plans` — contenido web pública
-- `availability`, `availability_configs`, `vacation_periods` — disponibilidad
-- `patients`, `appointments` — pacientes y citas
-- `clinical_histories`, `clinical_history_files` — historias clínicas
-- `blog_categories`, `blog_posts` — blog
-- `faqs` — preguntas frecuentes
-- `themes` — temas visuales
-- `gallery_images` — galería de imágenes
-- `social_networks` — redes sociales
-- `public_phrases` — frases personalizables
-- `data_protection_templates` — plantilla protección de datos
-- `notifications` — notificaciones del dashboard
+### 📱 Notificaciones
+- Cuando un paciente reserva, te avisa al instante en el panel
+- Recibirás también un email si lo configuras
 
 ---
 
-## Estructura del proyecto
+## ¿Para quién es?
+
+Para **psicólog@s independientes** que quieren:
+- Una web profesional sin pagar fortunas
+- Dejar de gestionar citas como si estuviéramos en 1990
+- Tener todo el control desde un solo sitio
+- Transmitir confianza y profesionalidad desde el primer clic
+
+---
+
+## ¿Y lo mejor?
+
+No necesitas saber de tecnología. Ni de hosting, ni de dominios, ni de programación.
+**PsicoCMS se installa con un asistente paso a paso**, como cuando configuras el WhatsApp en un móvil nuevo. Tú solo pones tus datos, eliges el diseño que más te guste y… ¡listo!
+
+Y si algún día quieres cambiar el color, las fotos o el texto de tu web, lo haces tú misma desde el panel. Sin llamar a nadie. Sin pagar.
+
+---
+
+## Stack con el que está construido
+
+*Para los curiosos o quien lo vaya a mantener:*
+
+| Capa | Tecnología |
+|---|---|
+| Motor | PHP 8.2+ / Laravel 11 |
+| Base de datos | MySQL / MariaDB |
+| Maquetación | HTML5 semántico + CSS3 nativo |
+| Lógica en cliente | JavaScript ES6+ (sin frameworks) |
+| Editor de texto | Jodit (como WordPress) |
+| Calendario | FullCalendar |
+| Iconos | Font Awesome 6 |
+| Documentos PDF | DomPDF |
+
+---
+
+## Estructura del proyecto (para técnicos)
 
 ```
 psicocms/
-├── app/
-│   ├── Http/Controllers/     ← Controladores (Dashboard, Public, Auth, Install)
-│   ├── Http/Middleware/       ← CheckInstallation, RedirectIfInstalled, InjectThemeData
-│   ├── Http/Requests/         ← Validación de formularios
-│   ├── Models/                ← 21 modelos Eloquent
-│   ├── Services/              ← AvailabilityService, AppointmentService, SettingsService, PdfService
-│   └── Mail/                  ← NewAppointmentNotification
-├── database/migrations/       ← 21 migraciones
-├── database/seeders/          ← Seeders con datos por defecto
-├── resources/views/           ← Vistas Blade (dashboard/, public/, install/, auth/)
-├── public/
-│   ├── assets/                ← CSS, JS, fuentes, imágenes, vendor (Jodit, FullCalendar)
-│   └── themes/                ← 5 temas visuales (CSS por tema)
-├── routes/web.php             ← Todas las rutas
-└── storage/                   ← Archivos subidos (fotos, PDFs, imágenes galería)
+├── app/                  ← Lógica principal (controladores, modelos, servicios)
+├── resources/views/      ← Plantillas del dashboard, web pública, instalador
+├── public/assets/        ← CSS, JS, fuentes, imágenes
+├── public/themes/        ← 5 temas visuales (cada uno con su propio CSS)
+├── routes/web.php        ← Definición de rutas
+├── database/migrations/  ← Estructura de la base de datos
+└── storage/              ← Archivos subidos (fotos, PDFs, documentos)
 ```
-
+---
+**PsicoCMS no es solo software. Es la tranquilidad de tener tu consulta organizada, profesional y siempre accesible.** 🚀
