@@ -34,7 +34,7 @@
 - Tú controlas tu agenda: horarios, descansos, vacaciones
 - **Adiós a las llamadas para cuadrar agendas**
 
-### 🔐 Panel privado para ti sola
+### 🔐 Panel privado para ti sol@
 - Accede con tu email y contraseña desde cualquier dispositivo
 - Ve todas tus citas en un calendario tipo Google Calendar
 - Añade pacientes manualmente si hablaste con ellos por teléfono
