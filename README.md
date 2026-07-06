@@ -1,58 +1,137 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PsicoCMS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**CMS monolítico para psicólogos independientes**
 
-## About Laravel
+Construido con Laravel, PHP, MySQL y JavaScript vanilla. Cubre todo el flujo de trabajo de una psicóloga: web pública, blog, sistema de reservas, panel de administración, pacientes, historias clínicas y más.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Stack tecnológico
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Capa        | Tecnología                          |
+|-------------|-------------------------------------|
+| Backend     | PHP 8.2+ / Laravel 11               |
+| Base de datos | MySQL / MariaDB                    |
+| Frontend    | HTML5 semántico, CSS3 nativo, JavaScript ES6+ |
+| Editor WYSIWYG | Jodit 4.7.6                      |
+| Calendario  | FullCalendar                        |
+| PDF         | DomPDF                              |
+| Iconos      | Font Awesome 6                      |
+| Fuentes     | Lexend, Castoro, Montserrat         |
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Arquitectura
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Aplicación web monolítica con dos caras:
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Parte pública
+- Homepage con información de la psicóloga
+- Sobre mí
+- Servicios y especialidades
+- Planes y precios (online / presencial)
+- Blog con categorías
+- Preguntas frecuentes
+- Sistema de reserva de citas (wizard 3 pasos)
+- Contacto
+- 5 temas visuales seleccionables (elegante, moderno, minimalista, natural, profesional)
+- Modo landing (1 página) o multipágina
 
-## Agentic Development
+### Dashboard privado (`/panel-psicologa`)
+- Login seguro con email + contraseña (teléfono opcional)
+- Panel de inicio con KPIs y estadísticas reales
+- Gestión de citas (CRUD + calendario FullCalendar)
+- Gestión de pacientes (CRUD + búsqueda AJAX)
+- Gestión de historias clínicas (notas + archivos adjuntos)
+- Gestión de blog (CRUD + categorías)
+- Gestión de FAQ (CRUD + reorden)
+- Gestión de disponibilidad (horarios semanales, descanso entre sesiones, modo vacaciones, periodos de vacaciones)
+- Gestión de servicios, especialidades y planes
+- Gestión de temas visuales (5 temas, preview, modo landing/multipágina)
+- Gestión de galería de imágenes
+- Configuración general, información pública, frases, redes sociales, email, funcionalidades
+- Protección de datos (plantilla WYSIWYG + PDF por paciente)
+- Buscador global (citas, pacientes, historias, blog, FAQ)
+- Tema claro/oscuro con 8 colores seleccionables
+- Notificaciones en tiempo real (nuevas reservas, citas próximas)
+- Ayuda / tutorial integrado
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
 
-```bash
-composer require laravel/boost --dev
+## Funcionalidades clave
 
-php artisan boost:install
+### Asistente de instalación
+Wizard multi-paso que guía a la psicóloga en la configuración inicial: conexión BD, datos personales, servicios, horarios, foto, selección de tema. Todo desde el navegador, sin tocar código.
+
+### Sistema de citas con validación de solapamiento
+No se pueden crear dos citas en el mismo espacio de tiempo. La disponibilidad se configura por separado para online y presencial, con duración de sesión y descanso entre sesiones.
+
+### Notificaciones
+- Notificación en el dashboard cuando un paciente reserva una cita
+- Aviso automático 10 minutos antes de una cita
+- Polling cada 30 segundos, icono de campana con animación
+- Panel desplegable con historial de notificaciones
+
+### WhatsApp integrado
+- En web pública: el icono de teléfono abre WhatsApp con el número de la psicóloga (+51 Perú)
+- En dashboard: botón WhatsApp por paciente para contactar directamente
+
+### 5 temas visuales
+Cada tema tiene paleta de colores única, tipografías, estilos de banner y botones. El tema activo se aplica al instante desde el dashboard.
+
+### Modo oscuro
+- Dashboard: toggle claro/oscuro + 8 colores primarios seleccionables (persistente en localStorage)
+- Web pública: botón flotante que sugiere instalar Dark Reader
+
+---
+
+## Base de datos (20 tablas)
+
+- `psychologists` — único usuario del sistema
+- `settings` — configuración clave-valor
+- `services`, `specialties`, `plans` — contenido web pública
+- `availability`, `availability_configs`, `vacation_periods` — disponibilidad
+- `patients`, `appointments` — pacientes y citas
+- `clinical_histories`, `clinical_history_files` — historias clínicas
+- `blog_categories`, `blog_posts` — blog
+- `faqs` — preguntas frecuentes
+- `themes` — temas visuales
+- `gallery_images` — galería de imágenes
+- `social_networks` — redes sociales
+- `public_phrases` — frases personalizables
+- `data_protection_templates` — plantilla protección de datos
+- `notifications` — notificaciones del dashboard
+
+---
+
+## Estructura del proyecto
+
+```
+psicocms/
+├── app/
+│   ├── Http/Controllers/     ← Controladores (Dashboard, Public, Auth, Install)
+│   ├── Http/Middleware/       ← CheckInstallation, RedirectIfInstalled, InjectThemeData
+│   ├── Http/Requests/         ← Validación de formularios
+│   ├── Models/                ← 21 modelos Eloquent
+│   ├── Services/              ← AvailabilityService, AppointmentService, SettingsService, PdfService
+│   └── Mail/                  ← NewAppointmentNotification
+├── database/migrations/       ← 21 migraciones
+├── database/seeders/          ← Seeders con datos por defecto
+├── resources/views/           ← Vistas Blade (dashboard/, public/, install/, auth/)
+├── public/
+│   ├── assets/                ← CSS, JS, fuentes, imágenes, vendor (Jodit, FullCalendar)
+│   └── themes/                ← 5 temas visuales (CSS por tema)
+├── routes/web.php             ← Todas las rutas
+└── storage/                   ← Archivos subidos (fotos, PDFs, imágenes galería)
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## Documentación complementaria
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [AGENTS.md](./AGENTS.md) — Especificación completa del proyecto
+- [plan_implementacion.md](./plan_implementacion.md) — Plan de implementación detallado
+- [tareas.md](./tareas.md) — Estado de tareas por fase
+- [nuevas-funcionalidades.md](./nuevas-funcionalidades.md) — Funcionalidades añadidas post-implementación
+- [ejemplo_fixes.md](./ejemplo_fixes.md) — Correcciones y mejoras realizadas
+- [pre-instalacion.md](./pre-instalacion.md) — Instrucciones para la psicóloga
