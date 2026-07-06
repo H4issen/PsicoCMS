@@ -125,13 +125,3 @@ psicocms/
 └── storage/                   ← Archivos subidos (fotos, PDFs, imágenes galería)
 ```
 
----
-
-## Documentación complementaria
-
-- [AGENTS.md](./AGENTS.md) — Especificación completa del proyecto
-- [plan_implementacion.md](./plan_implementacion.md) — Plan de implementación detallado
-- [tareas.md](./tareas.md) — Estado de tareas por fase
-- [nuevas-funcionalidades.md](./nuevas-funcionalidades.md) — Funcionalidades añadidas post-implementación
-- [ejemplo_fixes.md](./ejemplo_fixes.md) — Correcciones y mejoras realizadas
-- [pre-instalacion.md](./pre-instalacion.md) — Instrucciones para la psicóloga
