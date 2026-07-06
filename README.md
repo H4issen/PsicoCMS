@@ -63,7 +63,7 @@ Para **psicólog@s independientes** que quieren:
 No necesitas saber de tecnología. Ni de hosting, ni de dominios, ni de programación.
 **PsicoCMS se installa con un asistente paso a paso**, como cuando configuras el WhatsApp en un móvil nuevo. Tú solo pones tus datos, eliges el diseño que más te guste y… ¡listo!
 
-Y si algún día quieres cambiar el color, las fotos o el texto de tu web, lo haces tú misma desde el panel. Sin llamar a nadie. Sin pagar.
+Y si algún día quieres cambiar el color, las fotos o el texto de tu web, lo haces tú mism@ desde el panel. Sin llamar a nadie. Sin pagar.
 
 ---
 
