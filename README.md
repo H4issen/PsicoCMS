@@ -4,7 +4,7 @@
 
 **PsicoCMS es tu solución.** Una herramienta todo-en-uno creada específicamente para psicólog@s independientes. Sin conocimientos técnicos. Sin pagar mensualidades a un desarrollador. Sin complicaciones.
 
-<video src="https://github.com/user-attachments/assets/0978ba52-1c3f-4122-bb92-6e477b23ed67" controls="controls" style="max-width: 100%;"></video>
+<video src="https://github.com/user-attachments/assets/7f42a86c-b623-4e95-8172-5c898d532a0e" controls="controls" style="max-width: 100%;"></video>
 ---
 
 ## ¿Qué problemas resuelve?
